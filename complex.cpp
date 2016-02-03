@@ -21,7 +21,7 @@ complex *complex :: operator +(complex &r)
     return *temp;
 }
 
-complex *complex :: operator ==( complex &r)
+complex *complex :: operator =( complex &r)
 {
     complex *temp;
     temp->real=r.real;
