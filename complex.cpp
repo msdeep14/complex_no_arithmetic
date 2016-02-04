@@ -1,30 +1,57 @@
 #include "complex.h"
-#include "ui_complex.h"
 
-complex::complex(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::complex)
+complex::complex()
 {
-    ui->setupUi(this);
+    real=1;
+    imaginary=1;
 }
 
-complex::~complex()
+complex  complex :: operator +(complex r)
 {
-    delete ui;
+    complex temp;
+    temp.real=real+r.real;
+    temp.imaginary=imaginary + r.imaginary;
+    return temp;
 }
 
-complex *complex :: operator +(complex &r)
+complex  complex :: operator -(complex r)
 {
-    complex *temp;
-    temp->real=real+r.real;
-    temp->imaginary=imaginary + r.imaginary;
-    return *temp;
+    complex temp;
+    temp.real=real-r.real;
+    temp.imaginary=imaginary - r.imaginary;
+    return temp;
 }
 
-complex *complex :: operator =( complex &r)
+int complex :: operator ==(complex &r)
 {
-    complex *temp;
-    temp->real=r.real;
-    temp->imaginary=r.imaginary;
-    return *temp;
+    if(r.real==real && r.imaginary==imaginary)
+        return 1;
+    else
+        return 0;
 }
+complex complex :: operator ~()
+{
+    complex temp;
+    temp.real=real;
+    temp.imaginary= imaginary - 2*imaginary;
+    return temp;
+}
+
+
+complex complex :: operator *(complex &r)
+{
+    complex temp;
+    temp.real=real*r.real - imaginary*r.imaginary;
+    temp.imaginary=real*r.imaginary + imaginary*r.real;
+    return temp;
+}
+
+complex complex :: operator /(complex  &r)
+{
+    complex temp;
+    temp.real=(real*r.real + imaginary*r.imaginary)/(r.real*r.real + r.imaginary*r.imaginary);
+    temp.imaginary=(imaginary*r.real - real*r.imaginary)/(r.real*r.real + r.imaginary*r.imaginary);
+    return temp;
+}
+
+
