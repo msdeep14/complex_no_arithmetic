@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-02-02T18:17:13
+# Project created by QtCreator 2016-02-04T10:19:31
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = complex_new
+TARGET = new_complex
 TEMPLATE = app
 
 
@@ -19,5 +19,4 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     complex.h
 
-FORMS    += mainwindow.ui \
-    complex.ui
+FORMS    += mainwindow.ui
