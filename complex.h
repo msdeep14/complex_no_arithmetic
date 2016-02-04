@@ -1,24 +1,19 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
-#include <QWidget>
-
-namespace Ui {
-class complex;
-}
-
-class complex : public QWidget
+class complex
 {
-    Q_OBJECT
-
+     double real,imaginary;
 public:
-    explicit complex(QWidget *parent = 0);
-    ~complex();
-int real,imaginary;
-    complex *operator +(complex &r);
-    complex *operator =(complex &r );
-private:
-    Ui::complex *ui;
+
+    complex();
+    complex operator +(complex r);
+    complex operator -(complex r);
+    complex operator *(complex &r);
+    complex operator /(complex &r);
+    complex operator ~();
+    int operator ==(complex &r);
+    friend class MainWindow;
 };
 
 #endif // COMPLEX_H
